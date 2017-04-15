@@ -2,9 +2,9 @@ package com.zy.weibo;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -15,7 +15,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class ConfigWeiboConsumer {
+@EnableCircuitBreaker
+public class WeiboConsumerConfig {
 
 
     @Bean
@@ -35,6 +36,6 @@ public class ConfigWeiboConsumer {
         i = -2;
         System.out.println(i>>1);
         System.out.println(i>>>1);
-        //new SpringApplicationBuilder(ConfigWeiboConsumer.class).web(true).run();
+        new SpringApplicationBuilder(WeiboConsumerConfig.class).web(true).run();
     }
 }

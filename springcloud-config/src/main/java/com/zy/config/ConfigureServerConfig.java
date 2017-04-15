@@ -1,17 +1,16 @@
-package com.zy.weibo;
+package com.zy.config;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author by zy.
  */
 @SpringBootApplication
-@EnableEurekaClient
-public class ConfigWeiboService {
-
+@EnableConfigServer
+public class ConfigureServerConfig {
     public static void main(String argv[]){
-        new SpringApplicationBuilder(ConfigWeiboService.class).web(true).run();
+        new SpringApplicationBuilder(ConfigureServerConfig.class).web(true).run();
     }
 }

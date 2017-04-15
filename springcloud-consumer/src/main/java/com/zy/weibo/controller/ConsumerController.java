@@ -18,24 +18,21 @@ import org.springframework.web.client.RestTemplate;
 public class ConsumerController {
     private static final Logger logger = LoggerFactory.getLogger(ConsumerController.class);
 
-    /*@Autowired
-    private RestTemplate restTemplate;
-
     @Autowired
-    private WeiboServiceClient weiboServiceClient;*/
+    private WeiboServiceClient weiboServiceClient;
 
     @Autowired
     private WeiboService weiboService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add(Integer a, Integer b){
-        logger.info("add");
-        return weiboService.addService();
+        logger.info("add a:{}, b:{}", a, b);
+        return weiboService.addService(a, b);
     }
 
-    /*@RequestMapping(value = "/add2", method = RequestMethod.GET)
-    public Integer add2(){
-        logger.info("add2");
-        return weiboServiceClient.add(3,4);
-    }*/
+    @RequestMapping(value = "/add2", method = RequestMethod.GET)
+    public Integer add2(Integer a, Integer b){
+        logger.info("add2 by feign");
+        return weiboServiceClient.add(a, b);
+    }
 }
