@@ -19,7 +19,7 @@ public class WeiboService {
     @HystrixCommand(fallbackMethod = "addServiceFallback")
     public String addService(Integer a, Integer b){
         return restTemplate.getForEntity(
-                String.format("http://weibo/add?a=%d&b=%d", a, b),
+                String.format("http://weibo-service/add?a=%d&b=%d", a, b),
                 String.class).getBody();
     }
 

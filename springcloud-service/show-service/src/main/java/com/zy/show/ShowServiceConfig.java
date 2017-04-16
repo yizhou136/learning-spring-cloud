@@ -1,18 +1,18 @@
-package com.zy.config;
+package com.zy.show;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author by zy.
  */
 @SpringBootApplication
-@EnableConfigServer
+//@EnableEurekaClient
 @EnableDiscoveryClient
-public class ConfigureServerConfig {
+public class ShowServiceConfig {
+
     public static void main(String argv[]){
-        new SpringApplicationBuilder(ConfigureServerConfig.class).web(true).run();
+        new SpringApplicationBuilder(ShowServiceConfig.class).web(true).run();
     }
 }

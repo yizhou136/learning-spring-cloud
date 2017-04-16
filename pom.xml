@@ -27,6 +27,7 @@
 		<module>springcloud-consumer</module>
         <module>springcloud-register</module>
         <module>springcloud-service</module>
+        <module>springcloud-api-gateway</module>
     </modules>
     
 	<parent>

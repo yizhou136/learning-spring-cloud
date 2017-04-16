@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author by zy.
  */
-@FeignClient("weibo")
+@FeignClient("weibo-service")
 public interface WeiboServiceClient {
 
 

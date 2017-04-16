@@ -19,5 +19,6 @@
 
     <modules>
         <module>weibo-service</module>
+        <module>show-service</module>
     </modules>
 </project>
