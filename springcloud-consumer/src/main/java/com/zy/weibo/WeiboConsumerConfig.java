@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-//@EnableCircuitBreaker
+@EnableCircuitBreaker
 public class WeiboConsumerConfig {
 
 

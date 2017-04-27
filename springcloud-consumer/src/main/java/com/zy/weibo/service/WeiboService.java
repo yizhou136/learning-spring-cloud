@@ -23,7 +23,7 @@ public class WeiboService {
                 String.class).getBody();
     }
 
-    public String addServiceFallback(){
-        return "error";
+    public String addServiceFallback(Integer a, Integer b){
+        return "error a"+a+" b:"+b;
     }
 }
