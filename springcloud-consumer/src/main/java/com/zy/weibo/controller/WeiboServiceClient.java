@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author by zy.
  */
-@FeignClient("weibo-service")
+@FeignClient(value = "weibo-service", fallback = WeiboServiceHystrixFallback.class)
 public interface WeiboServiceClient {
 
 
