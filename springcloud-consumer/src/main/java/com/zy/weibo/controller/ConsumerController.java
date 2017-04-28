@@ -34,7 +34,7 @@ public class ConsumerController {
     public String add(Integer a, Integer b){
         logger.info("add a:{}, b:{}  the env from str:{}",
                 a, b, from);
-        return weiboService.addService(a, b);
+        return weiboService.addServiceByFeign(a, b);
     }
 
     @RequestMapping(value = "/add2", method = RequestMethod.GET)
