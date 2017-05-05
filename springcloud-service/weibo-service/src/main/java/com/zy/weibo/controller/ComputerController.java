@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import java.util.stream.Stream;
+
 /**
  * @author by zy.
  */
@@ -20,11 +24,17 @@ public class ComputerController {
     private DiscoveryClient discoveryClient;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public int add(Integer a, Integer b){
+    public int add(Integer a, Integer b, HttpServletRequest request){
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
         Integer res = a + b;
-        logger.info("serviceInstance host:{} serviceId:{} add:{} ",
-                serviceInstance.getHost(), serviceInstance.getServiceId(), res);
+        Cookie cookies[] = request.getCookies();
+        logger.info("serviceInstance host:{} serviceId:{} add:{} cookies:{}",
+                serviceInstance.getHost(), serviceInstance.getServiceId(), res, cookies);
+        if (cookies != null)
+            Stream.of(cookies).forEach((c)->{
+                logger.info("cookie {} name:{} value:{}",
+                        c, c.getName(), c.getValue());
+            });
 
         return res;
     }

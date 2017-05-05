@@ -1,9 +1,6 @@
 package com.zy.weibo.test.hystrix;
 
-import com.netflix.hystrix.HystrixCommand;
-import com.netflix.hystrix.HystrixCommandGroupKey;
-import com.netflix.hystrix.HystrixCommandKey;
-import com.netflix.hystrix.HystrixThreadPoolKey;
+import com.netflix.hystrix.*;
 import com.netflix.hystrix.contrib.javanica.command.HystrixCommandFactory;
 import com.netflix.hystrix.exception.HystrixBadRequestException;
 import org.slf4j.Logger;
@@ -18,7 +15,8 @@ public class HystrixHelloWorld extends HystrixCommand<String>{
 
     private static final Setter setter = Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("HystrixHelloWorldGroup"))
             .andCommandKey(HystrixCommandKey.Factory.asKey("helloworld"))
-            .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("helloworld_threadpool"));
+            .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("helloworld_threadpool"))
+            .andCommandPropertiesDefaults(HystrixCommandProperties.Setter());
 
     public HystrixHelloWorld(String name){
         super(setter);

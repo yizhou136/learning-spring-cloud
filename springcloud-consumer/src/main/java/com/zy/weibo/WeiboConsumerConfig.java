@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @EnableCircuitBreaker
 //@EnableAspectJAutoProxy
-//@EnableHystrixDashboard
+@EnableHystrixDashboard
 //@EnableTurbine
 public class WeiboConsumerConfig {
 
